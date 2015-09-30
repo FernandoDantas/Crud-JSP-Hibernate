@@ -1,0 +1,21 @@
+<persistence>
+   <persistence-unit name="sistema" transaction-type="RESOURCE_LOCAL">
+
+      <properties>
+          <provider>org.hibernate.ejb.HibernatePersistence</provider>
+          <class>br.com.fernando.DB.Cliente</class>
+          <class>br.com.fernando.DB.Categoria</class>
+         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+         <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+         <property name="hibernate.connection.username" value="root"/>
+         <property name="hibernate.connection.password" value=""/>
+         <property name="hibernate.connection.url" value="jdbc:mysql://localhost/hibernate"/>
+         <property name="hibernate.max_fetch_depth" value="3"/>
+         <property name="hibernate.format_sql" value="true" />
+         <property name="hibernate.use_sql_comments" value="false" />
+         <property name="hibernate.hbm2ddl.auto" value="false" />
+         <property name="hibernate.show_sql" value="false" />
+         <property name="hibernate.jdbc.batch_size" value="50" />
+      </properties>
+   </persistence-unit>
+</persistence>
