@@ -8,7 +8,7 @@ import javax.persistence.Query;
 public class CategoriaDAO extends DAO{
 
 	public void salvar(Categoria cat){
-		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager().createEntityManager();
 		try{
 			em.getTransaction().begin();
 			em.persist(cat);
@@ -19,12 +19,12 @@ public class CategoriaDAO extends DAO{
 	}
 	
 	public Categoria getById(int idCat){
-		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager().createEntityManager();
 		return em.find(Categoria.class, idCat);
 	}
 	
 	public void update(Categoria cat){
-		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager().createEntityManager();
 		
 		try{
 			em.getTransaction().begin();
@@ -38,7 +38,7 @@ public class CategoriaDAO extends DAO{
 	}
 	
 	public void delete(Categoria cat){
-		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager().createEntityManager();
 		
 		try{
 			em.getTransaction().begin();
@@ -51,7 +51,7 @@ public class CategoriaDAO extends DAO{
 	}
 
 	public List<Categoria> exibir(){
-		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager().createEntityManager();
 		
 		try{
 			Query q = em.createQuery("select object(c) from Categoria as c");

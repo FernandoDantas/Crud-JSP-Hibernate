@@ -12,7 +12,7 @@ import org.hibernate.criterion.Restrictions;
 public class ClienteDAO extends DAO {
 
 	public void salvar(Cliente cliente){
-		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager().createEntityManager();
 		
 		try{
 			em.getTransaction().begin();
@@ -24,12 +24,12 @@ public class ClienteDAO extends DAO {
 	}
 	
 	public Cliente getById(int idCliente){
-		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager().createEntityManager();
 		return em.find(Cliente.class, idCliente);
 	}
 	
 	public void update(Cliente cliente){
-		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager().createEntityManager();
 		
 		try{
 			em.getTransaction().begin();
@@ -44,7 +44,7 @@ public class ClienteDAO extends DAO {
 	}
 	
 	public void delete(Cliente cliente){
-		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager().createEntityManager();
 		
 		try{
 			em.getTransaction().begin();
@@ -57,7 +57,7 @@ public class ClienteDAO extends DAO {
 	}
 	
 	public List<Cliente> exibir_by_name(String nome){
-		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager().createEntityManager();
 		
 		Criteria criteria = getSession().createCriteria(Cliente.class);
 		//criteria.add(Restrictions.eq("nome", "Rafael"));
@@ -80,7 +80,7 @@ public class ClienteDAO extends DAO {
 	}
 
 	public List<Cliente> exibir(){
-		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager().createEntityManager();
 		
 		try{
 			Query q = em.createQuery("select object(c) from Cliente as c");
